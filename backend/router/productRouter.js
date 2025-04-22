@@ -1,17 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
+const productController = require("../controllers/productController");
+
 
 // Add Product
-router.post('/add', async (req, res) => {
-  try {
-    const product = new Product(req.body);
-    await product.save();
-    res.status(201).json(product);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
+router.post("/add", productController.product);
 
 // Get All Products
 router.get('/', async (req, res) => {

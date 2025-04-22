@@ -1,0 +1,17 @@
+const Registration = require("../models/product");
+
+const product = async (req, res) => {
+  try {
+    console.log("📥 Received Product List:", req.body);
+    const saved = await Registration.create(req.body);
+    res.status(200).json({
+       message: "✅ Product Added successfully!",
+       data: saved
+    })
+  } catch (err) {
+    console.error("❌ Failed to add Product:", err);
+    res.status(500).json({ message: "Failed to add product", error: err });
+  }
+};
+
+module.exports = {product};

@@ -9,10 +9,10 @@ app.use(cors());
 app.use(express.json());
 app.use('/products', productRoutes);
 
-const MONGO_URI = 'mongodb://localhost:27017/ecommerce';
-mongoose.connect(MONGO_URI)
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('MongoDB error:' , err));
 
 const PORT = 8080;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
+//import Connection
+const connection = require("./connections/connection");
+connection();
