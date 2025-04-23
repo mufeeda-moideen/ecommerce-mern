@@ -7,7 +7,7 @@ const ProductView = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/products/${id}`)
+    axios.get(`http://localhost:8080/products/get/${id}`)
       .then(res => {
         console.log("Product Data:", res.data); // As per task requirement
         setProduct(res.data);

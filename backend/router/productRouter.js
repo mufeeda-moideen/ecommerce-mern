@@ -1,22 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/product');
+
+//import controller
 const productController = require("../controllers/productController");
-
-
-// Add Product
-router.post("/add", productController.product);
-
-// Get All Products
-router.get('/', async (req, res) => {
-  const products = await Product.find();
-  res.json(products);
-});
-
-// Get Single Product
-router.get('/:id', async (req, res) => {
-  const product = await Product.findById(req.params.id);
-  res.json(product);
-});
+router.post('/add', productController.product);
+router.get('/get/pro', productController.fetchProduct);
+router.get('/get/:id', productController.productView);
 
 module.exports = router;

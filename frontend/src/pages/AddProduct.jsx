@@ -27,7 +27,7 @@ const AddProduct = () => {
     } else {
       const res = await axios.post("http://localhost:8080/products/add", product);
       alert(res.data.message);
-      console.log("Server Response:",res.data.data);
+      //console.log("Server Response:",res.data.data);
       setProduct({
         name: '',
         price: '',
